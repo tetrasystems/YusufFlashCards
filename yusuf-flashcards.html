@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surah Yusuf Flashcards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .progress-text {
+            color: white;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #4ade80;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .flashcard-container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-bottom: 20px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .arabic-word {
+            font-size: 3em;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .toggle-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            touch-action: manipulation;
+        }
+
+        .toggle-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .toggle-btn:active {
+            transform: translateY(0);
+        }
+
+        .details {
+            display: none;
+            animation: slideDown 0.3s ease;
+            flex-grow: 1;
+        }
+
+        .details.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .detail-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-right: 4px solid #667eea;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .detail-content {
+            color: #333;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .flashcard-container {
+                padding: 20px;
+                min-height: 350px;
+            }
+
+            .arabic-word {
+                font-size: 2.2em;
+            }
+
+            .toggle-btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            .nav-btn {
+                padding: 12px;
+                font-size: 1em;
+            }
+
+            .detail-section {
+                padding: 12px;
+            }
+
+            .detail-label {
+                font-size: 1em;
+            }
+
+            .detail-content {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .arabic-word {
+                font-size: 1.8em;
+            }
+
+            .header h1 {
+                font-size: 1.2em;
+            }
+
+            .flashcard-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>بطاقات تعليمية - سورة يوسف</h1>
+        <h2 style="font-size: 1.2em; margin-top: 5px;">Surah Yusuf Flashcards</h2>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-text">Card <span id="currentCard">1</span> of <span id="totalCards">250</span></div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <div class="flashcard-container">
+        <div class="arabic-word" id="arabicWord"></div>
+        <button class="toggle-btn" id="toggleBtn" onclick="toggleDetails()">Show Details</button>
+        <div class="details" id="details">
+            <div class="detail-section">
+                <div class="detail-label">Contextual Meaning in Surah Yusuf:</div>
+                <div class="detail-content" id="meaning"></div>
+            </div>
+            <div class="detail-section">
+                <div class="detail-label">Root Word (الجذر):</div>
+                <div class="detail-content" id="root"></div>
+            </div>
+            <div class="detail-section">
+                <div class="detail-label">Root Meaning:</div>
+                <div class="detail-content" id="rootMeaning"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="previousCard()">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextCard()">Next →</button>
+    </div>
+
+    <script>
+        const flashcards = [
+            {
+                word: "فَيَكِيدُو",
+                meaning: "So they plot/scheme - referring to the brothers plotting against Yusuf",
+                root: "ك ي د",
+                rootMeaning: "To plot, scheme, devise a plan"
+            },
+            {
+                word: "يَجۡتَبِيكَ",
+                meaning: "He will choose you - Allah choosing Yusuf for prophethood",
+                root: "ج ب ي",
+                rootMeaning: "To choose, select, prefer"
+            },
+            {
+                word: "وَيُتِمُّ",
+                meaning: "And He will complete/perfect - Allah completing His favor",
+                root: "ت م م",
+                rootMeaning: "To complete, perfect, finish"
+            },
+            {
+                word: "أَتَمَّهَا",
+                meaning: "He completed it - Allah completing His blessing on Ibrahim's family",
+                root: "ت م م",
+                rootMeaning: "To complete, perfect"
+            },
+            {
+                word: "عُصۡبَةٌ",
+                meaning: "A group/band - the brothers calling themselves a strong group",
+                root: "ع ص ب",
+                rootMeaning: "To bind together, form a group"
+            },
+            {
+                word: "ٱطۡرَحُوهُ",
+                meaning: "Throw him away - the brothers' plan to cast Yusuf away",
+                root: "ط ر ح",
+                rootMeaning: "To throw, cast away"
+            },
+            {
+                word: "أَرۡضٗا",
+                meaning: "A land - suggesting to take Yusuf to a distant land",
+                root: "أ ر ض",
+                rootMeaning: "Land, earth"
+            },
+            {
+                word: "يَخۡلُ",
+                meaning: "Will be free/clear - the father's attention being free for them",
+                root: "خ ل و",
+                rootMeaning: "To be free, empty, vacant"
+            },
+            {
+                word: "غَيَٰبَتِ",
+                meaning: "The depths/bottom - the depths of the well",
+                root: "غ ي ب",
+                rootMeaning: "Hidden depths, unseen places"
+            },
+            {
+                word: "ٱلۡجُبِّ",
+                meaning: "The well - where Yusuf was thrown",
+                root: "ج ب ب",
+                rootMeaning: "Well, pit"
+            },
+            {
+                word: "يَلۡتَقِطۡهُ",
+                meaning: "Will pick him up - a traveler finding Yusuf",
+                root: "ل ق ط",
+                rootMeaning: "To pick up, find"
+            },
+            {
+                word: "تَأۡمَنَّا",
+                meaning: "Do you not trust us - brothers questioning their father",
+                root: "أ م ن",
+                rootMeaning: "To trust, feel secure"
+            },
+            {
+                word: "لَنَٰصِحُونَ",
+                meaning: "Surely sincere/well-wishers - brothers claiming sincerity",
+                root: "ن ص ح",
+                rootMeaning: "To advise sincerely, be well-wisher"
+            },
+            {
+                word: "يَرۡتَعۡ",
+                meaning: "To play/enjoy himself - letting Yusuf play",
+                root: "ر ت ع",
+                rootMeaning: "To pasture, play freely"
+            },
+            {
+                word: "لَيَحۡزُنُنِيٓ",
+                meaning: "It would surely grieve me - Ya'qub's worry about losing Yusuf",
+                root: "ح ز ن",
+                rootMeaning: "To grieve, be sad"
+            },
+            {
+                word: "تَذۡهَبُواْ",
+                meaning: "You go - taking Yusuf away",
+                root: "ذ ه ب",
+                rootMeaning: "To go, depart"
+            },
+            {
+                word: "ٱلذِّئۡبُ",
+                meaning: "The wolf - the excuse used by the brothers",
+                root: "ذ ء ب",
+                rootMeaning: "Wolf"
+            },
+            {
+                word: "لَّخَٰسِرُونَ",
+                meaning: "Surely losers - if the wolf ate Yusuf they'd be losers",
+                root: "خ س ر",
+                rootMeaning: "To lose, be at loss"
+            },
+            {
+                word: "وَأَجۡمَعُوٓاْ",
+                meaning: "And they resolved/agreed - brothers agreeing on their plan",
+                root: "ج م ع",
+                rootMeaning: "To gather, agree upon"
+            },
+            {
+                word: "يَجۡعَلُوهُ",
+                meaning: "To place him - putting Yusuf in the well",
+                root: "ج ع ل",
+                rootMeaning: "To make, place, put"
+            },
+            {
+                word: "وَأَوۡحَيۡنَآ",
+                meaning: "And We revealed - Allah's revelation to Yusuf in the well",
+                root: "و ح ي",
+                rootMeaning: "To reveal, inspire"
+            },
+            {
+                word: "لَتُنَبِّئَنَّهُم",
+                meaning: "You will surely inform them - Yusuf will tell them of their deed",
+                root: "ن ب أ",
+                rootMeaning: "To inform, tell news"
+            },
+            {
+                word: "بِأَمۡرِهِمۡ",
+                meaning: "About their affair/deed - the brothers' plot",
+                root: "أ م ر",
+                rootMeaning: "Command, affair, matter"
+            },
+            {
+                word: "يَشۡعُرُونَ",
+                meaning: "They perceive/realize - without them knowing",
+                root: "ش ع ر",
+                rootMeaning: "To perceive, feel, realize"
+            },
+            {
+                word: "عِشَآءٗ",
+                meaning: "At nightfall/evening - when brothers returned",
+                root: "ع ش و",
+                rootMeaning: "Evening, nightfall"
+            },
+            {
+                word: "يَبۡكُونَ",
+                meaning: "Weeping/crying - brothers' false tears",
+                root: "ب ك ي",
+                rootMeaning: "To weep, cry"
+            },
+            {
+                word: "ذَهَبۡنَا",
+                meaning: "We went - brothers went racing",
+                root: "ذ ه ب",
+                rootMeaning: "To go, depart"
+            },
+            {
+                word: "نَسۡتَبِقُ",
+                meaning: "To race one another - the brothers racing",
+                root: "س ب ق",
+                rootMeaning: "To race, compete, precede"
+            },
+            {
+                word: "مَتَٰعِنَا",
+                meaning: "Our belongings - left Yusuf with their things",
+                root: "م ت ع",
+                rootMeaning: "Goods, possessions, provisions"
+            },
+            {
+                word: "بِمُؤۡمِنٖ",
+                meaning: "As one who believes - Ya'qub won't believe them",
+                root: "أ م ن",
+                rootMeaning: "To believe, have faith"
+            },
+            {
+                word: "صَٰدِقِينَ",
+                meaning: "Truthful ones - even if they were truthful",
+                root: "ص د ق",
+                rootMeaning: "To be truthful, sincere"
+            },
+            {
+                word: "بِدَمٖ",
+                meaning: "With blood - false blood on the shirt",
+                root: "د م و",
+                rootMeaning: "Blood"
+            },
+            {
+                word: "كَذِبٖۚ",
+                meaning: "False/fabricated - the false blood",
+                root: "ك ذ ب",
+                rootMeaning: "To lie, fabricate"
+            },
+            {
+                word: "سَوَّلَتۡ",
+                meaning: "Has enticed/suggested - their souls suggested evil",
+                root: "س و ل",
+                rootMeaning: "To entice, suggest, embellish"
+            },
+            {
+                word: "أَنفُسُكُمۡ",
+                meaning: "Your souls/selves - their own souls",
+                root: "ن ف س",
+                rootMeaning: "Soul, self, person"
+            },
+            {
+                word: "أَمۡرٗاۖ",
+                meaning: "A matter/affair - evil deed they did",
+                root: "أ م ر",
+                rootMeaning: "Matter, affair, command"
+            },
+            {
+                word: "ٱلۡمُسۡتَعَانُ",
+                meaning: "The One whose help is sought - Allah's help sought",
+                root: "ع و ن",
+                rootMeaning: "To help, assist"
+            },
+            {
+                word: "تَصِفُونَ",
+                meaning: "You describe/attribute - what they falsely describe",
+                root: "و ص ف",
+                rootMeaning: "To describe, characterize"
+            },
+            {
+                word: "سَيَّارَةٞ",
+                meaning: "A caravan - travelers passing by",
+                root: "س ي ر",
+                rootMeaning: "To travel, journey"
+            },
+            {
+                word: "وَارِدَهُمۡ",
+                meaning: "Their water-drawer - one who draws water",
+                root: "و ر د",
+                rootMeaning: "To come to water, approach"
+            },
+            {
+                word: "فَأَدۡلَىٰ",
+                meaning: "So he let down - lowering the bucket",
+                root: "د ل و",
+                rootMeaning: "To let down, lower"
+            },
+            {
+                word: "دَلۡوَهُ",
+                meaning: "His bucket - the water bucket",
+                root: "د ل و",
+                rootMeaning: "Bucket, pail"
+            },
+            {
+                word: "وَأَسَرُّوهُ",
+                meaning: "And they concealed him - hid Yusuf as merchandise",
+                root: "س ر ر",
+                rootMeaning: "To conceal, hide, keep secret"
+            },
+            {
+                word: "بِضَٰعَ",
+                meaning: "Merchandise/goods - treating Yusuf as trade goods",
+                root: "ب ض ع",
+                rootMeaning: "Merchandise, goods"
+            },
+            {
+                word: "يَعۡمَلُونَ",
+                meaning: "They do/work - Allah knows what they do",
+                root: "ع م ل",
+                rootMeaning: "To do, work, act"
+            },
+            {
+                word: "وَشَرَوۡهُ",
+                meaning: "And they sold him - selling Yusuf",
+                root: "ش ر ي",
+                rootMeaning: "To sell, buy, trade"
+            },
+            {
+                word: "بِثَمَنِۭ",
+                meaning: "For a price - cheap price",
+                root: "ث م ن",
+                rootMeaning: "Price, value"
+            },
+            {
+                word: "بَخۡسٖ",
+                meaning: "Reduced/meager - low price",
+                root: "ب خ س",
+                rootMeaning: "To reduce, diminish, cheat"
+            },
+            {
+                word: "دَرَٰهِمَ",
+                meaning: "Dirhams - silver coins",
+                root: "د ر ه م",
+                rootMeaning: "Dirham (currency)"
+            },
+            {
+                word: "مَعۡدُودَةٖ",
+                meaning: "Few/counted - small number of coins",
+                root: "ع د د",
+                rootMeaning: "To count, number"
+            },
+            {
+                word: "ٱلزَّٰهِدِينَ",
+                meaning: "Those uninterested - not valuing him",
+                root: "ز ه د",
+                rootMeaning: "To be ascetic, uninterested"
+            },
+            {
+                word: "ٱشۡتَرَىٰهُ",
+                meaning: "Who bought him - the Egyptian who purchased Yusuf",
+                root: "ش ر ي",
+                rootMeaning: "To buy, purchase"
+            },
+            {
+                word: "أَكۡرِمِي",
+                meaning: "Be generous to - treating Yusuf well",
+                root: "ك ر م",
+                rootMeaning: "To be generous, honor"
+            },
+            {
+                word: "مَثۡوَىٰهُ",
+                meaning: "His stay/lodging - Yusuf's residence",
+                root: "ث و ي",
+                rootMeaning: "To stay, reside, abode"
+            },
+            {
+                word: "يَنفَعَنَآ",
+                meaning: "He may benefit us - hoping for benefit",
+                root: "ن ف ع",
+                rootMeaning: "To benefit, be useful"
+            },
+            {
+                word: "نَتَّخِذَهُ",
+                meaning: "We may adopt him - taking as a son",
+                root: "أ خ ذ",
+                rootMeaning: "To take, adopt"
+            },
+            {
+                word: "مَكَّنَّا",
+                meaning: "We established - Allah establishing Yusuf",
+                root: "م ك ن",
+                rootMeaning: "To establish, empower, enable"
+            },
+            {
+                word: "وَلِنُعَلِّمَهُۥ",
+                meaning: "And that We might teach him - teaching interpretation",
+                root: "ع ل م",
+                rootMeaning: "To teach, know"
+            },
+            {
+                word: "ٱلۡأَحَادِي",
+                meaning: "The narrations/stories - interpretation of dreams",
+                root: "ح د ث",
+                rootMeaning: "To narrate, tell, happen"
+            },
+            {
+                word: "غَالِبٌ",
+                meaning: "Predominant/prevailing - Allah's will prevails",
+                root: "غ ل ب",
+                rootMeaning: "To overcome, prevail"
+            },
+            {
+                word: "نَجۡزِي",
+                meaning: "We reward - Allah rewarding good-doers",
+                root: "ج ز ي",
+                rootMeaning: "To reward, recompense"
+            },
+            {
+                word: "وَرَٰوَدَتۡهُ",
+                meaning: "And she tempted him - the wife's seduction",
+                root: "ر و د",
+                rootMeaning: "To tempt, seduce, seek"
+            },
+            {
+                word: "عَن",
+                meaning: "About/from - tempting away from righteousness",
+                root: "ع ن ن",
+                rootMeaning: "From, about (particle)"
+            },
+            {
+                word: "وَغَلَّقَتِ",
+                meaning: "And she locked - locking the doors",
+                root: "غ ل ق",
+                rootMeaning: "To lock, bolt, close firmly"
+            },
+            {
+                word: "وَقَالَتۡ",
+                meaning: "And she said - her invitation",
+                root: "ق و ل",
+                rootMeaning: "To say, speak"
+            },
+            {
+                word: "هَيۡتَ",
+                meaning: "Come on/here you are - urging him",
+                root: "ه ي ت",
+                rootMeaning: "Expression of readiness/invitation"
+            },
+            {
+                word: "مَعَاذَ",
+                meaning: "Refuge/protection - seeking Allah's protection",
+                root: "ع و ذ",
+                rootMeaning: "To seek refuge, protection"
+            },
+            {
+                word: "مَثۡوَايَۖ",
+                meaning: "My residence/master - respecting his master",
+                root: "ث و ي",
+                rootMeaning: "To stay, reside, master"
+            },
+            {
+                word: "هَمَّتۡ",
+                meaning: "She intended - her intention toward him",
+                root: "ه م م",
+                rootMeaning: "To intend, determine, concern"
+            },
+            {
+                word: "وَهَمَّ",
+                meaning: "And he would have intended - his fleeting thought",
+                root: "ه م م",
+                rootMeaning: "To intend, determine"
+            },
+            {
+                word: "بُرۡهَٰنَ",
+                meaning: "Clear proof/sign - proof from Allah",
+                root: "ب ر ه ن",
+                rootMeaning: "Clear proof, evidence"
+            },
+            {
+                word: "لِنَصۡرِفَ",
+                meaning: "To turn away - turning away evil",
+                root: "ص ر ف",
+                rootMeaning: "To turn away, avert"
+            },
+            {
+                word: "عَنۡهُ",
+                meaning: "From him - turning evil from him",
+                root: "ع ن ن",
+                rootMeaning: "From (particle)"
+            },
+            {
+                word: "ٱلسُّوٓءَ",
+                meaning: "The evil - evil deed",
+                root: "س و ء",
+                rootMeaning: "Evil, bad, harm"
+            },
+            {
+                word: "وَٱلۡفَحۡشَآءَۚ",
+                meaning: "And immorality - indecent act",
+                root: "ف ح ش",
+                rootMeaning: "Immorality, indecency, obscenity"
+            },
+            {
+                word: "ٱلۡمُخۡلَصِينَ",
+                meaning: "The sincere/chosen - Allah's chosen servants",
+                root: "خ ل ص",
+                rootMeaning: "To be sincere, pure, chosen"
+            },
+            {
+                word: "وَٱسۡتَبَقَا",
+                meaning: "And they raced - racing to the door",
+                root: "س ب ق",
+                rootMeaning: "To race, compete, precede"
+            },
+            {
+                word: "وَقَدَّتۡ",
+                meaning: "And she tore - tearing his shirt",
+                root: "ق د د",
+                rootMeaning: "To tear, rip"
+            },
+            {
+                word: "دُبُرٖ",
+                meaning: "From behind - from the back",
+                root: "د ب ر",
+                rootMeaning: "Back, behind, rear"
+            },
+            {
+                word: "وَأَلۡفَيَا",
+                meaning: "And they found - encountering the husband",
+                root: "ل ف ي",
+                rootMeaning: "To find, meet, encounter"
+            },
+            {
+                word: "سَيِّدَهَا",
+                meaning: "Her master/husband - her lord",
+                root: "س و د",
+                rootMeaning: "Master, lord, chief"
+            },
+            {
+                word: "لَدَا",
+                meaning: "At/near - at the door",
+                root: "ل د ي",
+                rootMeaning: "At, near, with"
+            },
+            {
+                word: "جَزَآءُ",
+                meaning: "Recompense/punishment - what should be the reward",
+                root: "ج ز ي",
+                rootMeaning: "To recompense, reward, punish"
+            },
+            {
+                word: "بِأَهۡلِكَ",
+                meaning: "With your family/wife - intending evil to family",
+                root: "أ هـ ل",
+                rootMeaning: "Family, household, people"
+            },
+            {
+                word: "يُسۡجَنَ",
+                meaning: "Be imprisoned - punishment of prison",
+                root: "س ج ن",
+                rootMeaning: "To imprison, jail"
+            },
+            {
+                word: "رَٰوَدَتۡنِي",
+                meaning: "She tempted me - Yusuf's defense",
+                root: "ر و د",
+                rootMeaning: "To tempt, seduce"
+            },
+            {
+                word: "وَشَهِدَ",
+                meaning: "And testified - witness gave testimony",
+                root: "ش هـ د",
+                rootMeaning: "To witness, testify"
+            },
+            {
+                word: "قُدَّ",
+                meaning: "Was torn - shirt torn from front",
+                root: "ق د د",
+                rootMeaning: "To be torn, ripped"
+            },
+            {
+                word: "قُبُلٖ",
+                meaning: "From the front - from ahead",
+                root: "ق ب ل",
+                rootMeaning: "Front, before, facing"
+            },
+            {
+                word: "فَصَدَقَتۡ",
+                meaning: "Then she has told truth - if torn from front",
+                root: "ص د ق",
+                rootMeaning: "To tell truth, be truthful"
+            },
+            {
+                word: "كَيۡدِكُنَّۖ",
+                meaning: "Your plot/scheme - women's plotting",
+                root: "ك ي د",
+                rootMeaning: "Plot, scheme, cunning"
+            },
+            {
+                word: "عَظِيمٞ",
+                meaning: "Great/tremendous - great plotting",
+                root: "ع ظ م",
+                rootMeaning: "To be great, mighty, tremendous"
+            },
+            {
+                word: "أَعۡرِضۡ",
+                meaning: "Turn away - ignore this matter",
+                root: "ع ر ض",
+                rootMeaning: "To turn away, present, expose"
+            },
+            {
+                word: "لِذَنۢبِكِۖ",
+                meaning: "For your sin - seeking forgiveness",
+                root: "ذ ن ب",
+                rootMeaning: "Sin, guilt, fault"
+            },
+            {
+                word: "إِنَّكِ",
+                meaning: "Indeed you - certainly you (feminine)",
+                root: "ء ن ن",
+                rootMeaning: "Indeed, verily (particle)"
+            },
+            {
+                word: "نِسۡوَةٞ",
+                meaning: "Women - group of women",
+                root: "ن س و",
+                rootMeaning: "Women (plural)"
+            },
+            {
+                word: "تُرَٰوِدُ",
+                meaning: "Is tempting - trying to seduce",
+                root: "ر و د",
+                rootMeaning: "To tempt, seduce"
+            },
+            {
+                word: "فَتَىٰهَا",
+                meaning: "Her slave/servant - her young man",
+                root: "ف ت ي",
+                rootMeaning: "Young man, servant, slave"
+            },
+            {
+                word: "شَغَفَهَا",
+                meaning: "Has impassioned her - love penetrated her heart",
+                root: "ش غ ف",
+                rootMeaning: "To pierce, impassion, love deeply"
+            },
+            {
+                word: "بِمَكۡرِهِنَّ",
+                meaning: "Of their plotting - women's scheme",
+                root: "م ك ر",
+                rootMeaning: "To plot, scheme, plan"
+            },
+            {
+                word: "مُتَّكَـٔٗا",
+                meaning: "A banquet/cushions - feast with cushions",
+                root: "و ك أ",
+                rootMeaning: "To recline, lean, banquet"
+            },
+            {
+                word: "سِكِّينٗا",
+                meaning: "A knife - knives given to women",
+                root: "س ك ن",
+                rootMeaning: "Knife"
+            },
+            {
+                word: "رَأَيۡنَهُۥٓ",
+                meaning: "They saw him - women seeing Yusuf",
+                root: "ر أ ي",
+                rootMeaning: "To see, view"
+            },
+            {
+                word: "أَكۡبَرۡنَهُ",
+                meaning: "They greatly admired him - were amazed",
+                root: "ك ب ر",
+                rootMeaning: "To consider great, magnify, admire"
+            },
+            {
+                word: "وَقَطَّعۡنَ",
+                meaning: "And they cut - cut their hands",
+                root: "ق ط ع",
+                rootMeaning: "To cut, sever"
+            },
+            {
+                word: "حَٰشَ",
+                meaning: "Far be it - expressing impossibility",
+                root: "ح ش و",
+                rootMeaning: "Far be it, God forbid"
+            },
+            {
+                word: "مَلَكٞ",
+                meaning: "An angel - not human but angel",
+                root: "م ل ك",
+                rootMeaning: "Angel (malak with fatha)"
+            },
+            {
+                word: "لُمۡتُنَّنِي",
+                meaning: "You blamed me - blamed for loving him",
+                root: "ل و م",
+                rootMeaning: "To blame, reproach"
+            },
+            {
+                word: "فَٱسۡتَعۡصَمَۖ",
+                meaning: "But he firmly refused - held firm to chastity",
+                root: "ع ص م",
+                rootMeaning: "To hold firmly, resist, protect"
+            },
+            {
+                word: "ٱلصَّٰغِرِينَ",
+                meaning: "The disgraced/humiliated - among the humbled",
+                root: "ص غ ر",
+                rootMeaning: "To be small, humiliated, disgraced"
+            },
+            {
+                word: "يَدۡعُونَنِيٓ",
+                meaning: "They invite me - women inviting to sin",
+                root: "د ع و",
+                rootMeaning: "To call, invite, supplicate"
+            },
+            {
+                word: "تَصۡرِفۡ",
+                meaning: "You turn away - unless Allah turns away",
+                root: "ص ر ف",
+                rootMeaning: "To turn away, avert"
+            },
+            {
+                word: "أَصۡبُ",
+                meaning: "I might incline - inclination toward sin",
+                root: "ص ب و",
+                rootMeaning: "To incline, tend toward"
+            },
+            {
+                word: "وَأَكُن",
+                meaning: "And I become - becoming ignorant",
+                root: "ك و ن",
+                rootMeaning: "To be, become, exist"
+            },
+            {
+                word: "فَصَرَفَ",
+                meaning: "So He turned away - Allah averted evil",
+                root: "ص ر ف",
+                rootMeaning: "To turn away, avert"
+            },
+            {
+                word: "بَدَا",
+                meaning: "It appeared - became apparent to them",
+                root: "ب د و",
+                rootMeaning: "To appear, become evident"
+            },
+            {
+                word: "بَعۡدِ",
+                meaning: "After - after seeing signs",
+                root: "ب ع د",
+                rootMeaning: "After, following"
+            },
+            {
+                word: "رَأَوُاْ",
+                meaning: "They saw - after seeing proofs",
+                root: "ر أ ي",
+                rootMeaning: "To see, witness"
+            },
+            {
+                word: "لَيَسۡجُنُنَّهُ",
+                meaning: "They will surely imprison him - decision to jail",
+                root: "س ج ن",
+                rootMeaning: "To imprison, jail"
+            },
+            {
+                word: "حِينٖ",
+                meaning: "A time/period - for some time",
+                root: "ح ي ن",
+                rootMeaning: "Time, period, while"
+            },
+            {
+                word: "فَتَيَانِۖ",
+                meaning: "Two young men - fellow prisoners",
+                root: "ف ت ي",
+                rootMeaning: "Young men, youths"
+            },
+            {
+                word: "أَرَىٰنِيٓ",
+                meaning: "I see myself - in dream",
+                root: "ر أ ي",
+                rootMeaning: "To see, view"
+            },
+            {
+                word: "أَعۡصِرُ",
+                meaning: "Pressing/squeezing - making wine",
+                root: "ع ص ر",
+                rootMeaning: "To press, squeeze, extract"
+            },
+            {
+                word: "خَمۡرٗا",
+                meaning: "Wine - grape juice/wine",
+                root: "خ م ر",
+                rootMeaning: "Wine, intoxicant"
+            },
+            {
+                word: "أَحۡمِلُ",
+                meaning: "I am carrying - on my head",
+                root: "ح م ل",
+                rootMeaning: "To carry, bear"
+            },
+            {
+                word: "فَوۡقَ",
+                meaning: "Above/over - above head",
+                root: "ف و ق",
+                rootMeaning: "Above, over, beyond"
+            },
+            {
+                word: "رَأۡسِي",
+                meaning: "My head - on my head",
+                root: "ر أ س",
+                rootMeaning: "Head"
+            },
+            {
+                word: "خُبۡزٗا",
+                meaning: "Bread - loaves of bread",
+                root: "خ ب ز",
+                rootMeaning: "Bread"
+            },
+            {
+                word: "ٱلطَّيۡرُ",
+                meaning: "The birds - birds eating from it",
+                root: "ط ي ر",
+                rootMeaning: "Birds"
+            },
+            {
+                word: "نَبِّئۡنَا",
+                meaning: "Inform us - tell us interpretation",
+                root: "ن ب أ",
+                rootMeaning: "To inform, tell, narrate"
+            },
+            {
+                word: "نَرَىٰكَ",
+                meaning: "We see you - we consider you",
+                root: "ر أ ي",
+                rootMeaning: "To see, consider"
+            },
+            {
+                word: "تُرۡزَقَانِهِۦٓ",
+                meaning: "You are provided with it - food provision",
+                root: "ر ز ق",
+                rootMeaning: "To provide, sustain"
+            },
+            {
+                word: "نَبَّأۡتُكُمَا",
+                meaning: "I will inform you both - give interpretation",
+                root: "ن ب أ",
+                rootMeaning: "To inform, tell"
+            },
+            {
+                word: "تَرَكۡتُ",
+                meaning: "I have left - abandoned disbelief",
+                root: "ت ر ك",
+                rootMeaning: "To leave, abandon"
+            },
+            {
+                word: "مِلَّةَ",
+                meaning: "The religion/way - faith of people",
+                root: "م ل ل",
+                rootMeaning: "Religion, creed, way"
+            },
+            {
+                word: "وَٱتَّبَعۡتُ",
+                meaning: "And I have followed - followed the way",
+                root: "ت ب ع",
+                rootMeaning: "To follow, pursue"
+            },
+            {
+                word: "يَٰصَٰحِبَيِ",
+                meaning: "O my two companions - addressing prison mates",
+                root: "ص ح ب",
+                rootMeaning: "Companion, friend"
+            },
+            {
+                word: "ءَأَرۡبَابٞ",
+                meaning: "Are many lords - multiple gods",
+                root: "ر ب ب",
+                rootMeaning: "Lord, master (plural)"
+            },
+            {
+                word: "مُّتَفَرِّقُونَ",
+                meaning: "Diverse/separated - different gods",
+                root: "ف ر ق",
+                rootMeaning: "To separate, divide, distinguish"
+            },
+            {
+                word: "ٱلۡقَهَّارُ",
+                meaning: "The Irresistible - Allah the Dominant",
+                root: "ق هـ ر",
+                rootMeaning: "To subdue, overcome, dominate"
+            },
+            {
+                word: "سَمَّيۡتُمُوهَآ",
+                meaning: "You have named them - named false gods",
+                root: "س م و",
+                rootMeaning: "To name, call"
+            },
+            {
+                word: "إِيَّاهُۚ",
+                meaning: "Him alone - worship Him only",
+                root: "ء ي ي",
+                rootMeaning: "Him (emphatic pronoun)"
+            },
+            {
+                word: "ٱلۡقَيِّمُ",
+                meaning: "The right/upright - correct religion",
+                root: "ق و م",
+                rootMeaning: "To stand, upright, correct"
+            },
+            {
+                word: "أَمَّآ",
+                meaning: "As for - regarding one of them",
+                root: "أ م م",
+                rootMeaning: "As for (particle)"
+            },
+            {
+                word: "فَيَسۡقِي",
+                meaning: "Then he will give drink - serve wine",
+                root: "س ق ي",
+                rootMeaning: "To give drink, water"
+            },
+            {
+                word: "فَيُصۡلَبُ",
+                meaning: "Then he will be crucified - put on cross",
+                root: "ص ل ب",
+                rootMeaning: "To crucify"
+            },
+            {
+                word: "قُضِيَ",
+                meaning: "Has been decreed - matter decided",
+                root: "ق ض ي",
+                rootMeaning: "To decree, judge, decide"
+            },
+            {
+                word: "تَسۡتَفۡتِيَانِ",
+                meaning: "You both seek ruling on - asking interpretation",
+                root: "ف ت ي",
+                rootMeaning: "To give legal opinion, interpret"
+            },
+            {
+                word: "ظَنَّ",
+                meaning: "He thought - the one who thought he'd be saved",
+                root: "ظ ن ن",
+                rootMeaning: "To think, suppose, assume"
+            },
+            {
+                word: "فَأَنسَىٰهُ",
+                meaning: "So made him forget - Satan made him forget",
+                root: "ن س ي",
+                rootMeaning: "To forget, cause to forget"
+            },
+            {
+                word: "فَلَبِثَ",
+                meaning: "So he remained - stayed in prison",
+                root: "ل ب ث",
+                rootMeaning: "To remain, stay, tarry"
+            },
+            {
+                word: "بِضۡعَ",
+                meaning: "Several - three to nine years",
+                root: "ب ض ع",
+                rootMeaning: "Several, some (3-9)"
+            },
+            {
+                word: "سَبۡعَ",
+                meaning: "Seven - seven years or cows",
+                root: "س ب ع",
+                rootMeaning: "Seven"
+            },
+            {
+                word: "سِمَانٖ",
+                meaning: "Fat/plump - fat cows",
+                root: "س م ن",
+                rootMeaning: "To be fat, plump"
+            },
+            {
+                word: "يَأۡكُلُهُنَّ",
+                meaning: "Eating them - lean cows eating fat ones",
+                root: "أ ك ل",
+                rootMeaning: "To eat, consume"
+            },
+            {
+                word: "عِجَافٞ",
+                meaning: "Lean/thin - lean cows",
+                root: "ع ج ف",
+                rootMeaning: "To be lean, thin, emaciated"
+            },
+            {
+                word: "سُنۢبُلَٰتٍ",
+                meaning: "Ears of grain - stalks of grain",
+                root: "س ن ب ل",
+                rootMeaning: "Ears of grain, stalks"
+            },
+            {
+                word: "يَابِسَٰتٖۖ",
+                meaning: "Dry/withered - dried stalks",
+                root: "ي ب س",
+                rootMeaning: "To be dry, wither"
+            },
+            {
+                word: "ٱلۡمَلَأُ",
+                meaning: "The chiefs/assembly - royal court",
+                root: "م ل أ",
+                rootMeaning: "Chiefs, assembly, council"
+            },
+            {
+                word: "أَفۡتُونِي",
+                meaning: "Give me ruling - interpret for me",
+                root: "ف ت ي",
+                rootMeaning: "To give legal ruling, interpret"
+            },
+            {
+                word: "تَعۡبُرُونَ",
+                meaning: "You can interpret - able to explain dreams",
+                root: "ع ب ر",
+                rootMeaning: "To interpret, cross, express"
+            },
+            {
+                word: "لِلرُّءۡيَا",
+                meaning: "For visions/dreams - dream interpretation",
+                root: "ر أ ي",
+                rootMeaning: "Vision, dream"
+            },
+            {
+                word: "أَضۡغَٰثُ",
+                meaning: "Confused/jumbled - confused dreams",
+                root: "ض غ ث",
+                rootMeaning: "Confused mass, jumbled"
+            },
+            {
+                word: "أَحۡلَٰمٖۖ",
+                meaning: "Dreams - nighttime visions",
+                root: "ح ل م",
+                rootMeaning: "Dreams"
+            },
+            {
+                word: "بِعَٰلِمِينَ",
+                meaning: "Ones who know - knowledgeable interpreters",
+                root: "ع ل م",
+                rootMeaning: "To know, have knowledge"
+            },
+            {
+                word: "نَجَا",
+                meaning: "Was saved - the one who survived",
+                root: "ن ج و",
+                rootMeaning: "To be saved, escape"
+            },
+            {
+                word: "مِنۡهُمَا",
+                meaning: "Of them two - from the two prisoners",
+                root: "م ن",
+                rootMeaning: "From, of (particle)"
+            },
+            {
+                word: "وَٱدَّكَرَ",
+                meaning: "And remembered - finally recalled Yusuf",
+                root: "ذ ك ر",
+                rootMeaning: "To remember, mention"
+            },
+            {
+                word: "أُمَّةٍ",
+                meaning: "A period of time - after long time",
+                root: "أ م م",
+                rootMeaning: "Period, generation, community"
+            },
+            {
+                word: "أُنَبِّئُكُم",
+                meaning: "I will inform you - tell interpretation",
+                root: "ن ب أ",
+                rootMeaning: "To inform, tell"
+            },
+            {
+                word: "فَأَرۡسِلُونِ",
+                meaning: "So send me - let me go to Yusuf",
+                root: "ر س ل",
+                rootMeaning: "To send, dispatch"
+            },
+            {
+                word: "ٱلصِّدِّيقُ",
+                meaning: "O truthful one - very truthful person",
+                root: "ص د ق",
+                rootMeaning: "Truthful, very truthful"
+            },
+            {
+                word: "أَفۡتِنَا",
+                meaning: "Give us ruling - interpret for us",
+                root: "ف ت ي",
+                rootMeaning: "To give ruling, interpret"
+            },
+            {
+                word: "لَّعَلِّيٓ",
+                meaning: "Perhaps I - hoping to return",
+                root: "ل ع ل",
+                rootMeaning: "Perhaps, may be"
+            },
+            {
+                word: "أَرۡجِعُ",
+                meaning: "I may return - go back to king",
+                root: "ر ج ع",
+                rootMeaning: "To return, go back"
+            },
+            {
+                word: "تَزۡرَعُونَ",
+                meaning: "You will sow - plant crops",
+                root: "ز ر ع",
+                rootMeaning: "To sow, plant, cultivate"
+            },
+            {
+                word: "دَأَبٗا",
+                meaning: "With diligence - continuously, habitually",
+                root: "د أ ب",
+                rootMeaning: "Diligence, habit, custom"
+            },
+            {
+                word: "حَصَدتُّمۡ",
+                meaning: "You harvest - reap crops",
+                root: "ح ص د",
+                rootMeaning: "To harvest, reap"
+            },
+            {
+                word: "فَذَرُوهُ",
+                meaning: "Then leave it - keep in stalk",
+                root: "و ذ ر",
+                rootMeaning: "To leave, let be"
+            },
+            {
+                word: "سُنۢبُلِهِۦٓ",
+                meaning: "Its stalk/ear - grain stalk",
+                root: "س ن ب ل",
+                rootMeaning: "Ear of grain, stalk"
+            },
+            {
+                word: "يَأۡتِي",
+                meaning: "Will come - years coming",
+                root: "أ ت ي",
+                rootMeaning: "To come, bring"
+            },
+            {
+                word: "شِدَادٞ",
+                meaning: "Severe/harsh - difficult years",
+                root: "ش د د",
+                rootMeaning: "To be severe, intense, harsh"
+            },
+            {
+                word: "يَأۡكُلۡنَ",
+                meaning: "Will eat/consume - using up stores",
+                root: "أ ك ل",
+                rootMeaning: "To eat, consume"
+            },
+            {
+                word: "قَدَّمۡتُمۡ",
+                meaning: "You put forward - what you saved",
+                root: "ق د م",
+                rootMeaning: "To put forward, advance, precede"
+            },
+            {
+                word: "تُحۡصِنُونَ",
+                meaning: "You store/preserve - keeping safe",
+                root: "ح ص ن",
+                rootMeaning: "To fortify, store, preserve"
+            },
+            {
+                word: "عَامٞ",
+                meaning: "A year - year of relief",
+                root: "ع و م",
+                rootMeaning: "Year"
+            },
+            {
+                word: "يُغَاثُ",
+                meaning: "Will be relieved - rain will come",
+                root: "غ و ث",
+                rootMeaning: "To be relieved, aided, given rain"
+            },
+            {
+                word: "يَعۡصِرُونَ",
+                meaning: "They will press - press grapes/olives",
+                root: "ع ص ر",
+                rootMeaning: "To press, squeeze"
+            },
+            {
+                word: "فَسۡـَٔلۡهُ",
+                meaning: "So ask him - inquire from Yusuf",
+                root: "س أ ل",
+                rootMeaning: "To ask, question"
+            },
+            {
+                word: "بَالُ",
+                meaning: "State/case - what was the matter",
+                root: "ب و ل",
+                rootMeaning: "State, condition, case"
+            },
+            {
+                word: "ٱلنِّسۡوَةِ",
+                meaning: "The women - those women",
+                root: "ن س و",
+                rootMeaning: "Women"
+            },
+            {
+                word: "قَطَّعۡنَ",
+                meaning: "Who cut - who cut their hands",
+                root: "ق ط ع",
+                rootMeaning: "To cut, sever"
+            },
+            {
+                word: "أُبَرِّئُ",
+                meaning: "I absolve/exonerate - clearing himself",
+                root: "ب ر أ",
+                rootMeaning: "To absolve, exonerate, free from"
+            },
+            {
+                word: "لَأَمَّارَةُۢ",
+                meaning: "Certainly inclines - soul inclines to evil",
+                root: "أ م ر",
+                rootMeaning: "To command, incline persistently"
+            },
+            {
+                word: "ٱئْتُونِي بِهِ",
+                meaning: "Bring him to me - summon Yusuf",
+                root: "أ ت ي",
+                rootMeaning: "To bring, come with"
+            },
+            {
+                word: "يَتَبَوَّأُ",
+                meaning: "He may settle - take position",
+                root: "ب و أ",
+                rootMeaning: "To settle, take residence, establish"
+            },
+            {
+                word: "ٱلۡمُلۡكِ",
+                meaning: "The kingdom/authority - royal power",
+                root: "م ل ك",
+                rootMeaning: "To possess, rule, kingdom"
+            },
+            {
+                word: "ٱلۡأَحَادِيثِ",
+                meaning: "The narrations/reports - interpretation of reports",
+                root: "ح د ث",
+                rootMeaning: "Narrations, reports, stories"
+            },
+            {
+                word: "فَاطِرَ",
+                meaning: "Originator/Creator - Allah the Creator",
+                root: "ف ط ر",
+                rootMeaning: "To originate, create, split"
+            },
+            {
+                word: "وَلِيِّۦ",
+                meaning: "My protector - guardian and helper",
+                root: "و ل ي",
+                rootMeaning: "Friend, protector, guardian"
+            },
+            {
+                word: "تَوَفَّنِي",
+                meaning: "Cause me to die - take my soul",
+                root: "و ف ي",
+                rootMeaning: "To die, fulfill, complete"
+            },
+            {
+                word: "وَأَلۡحِقۡنِي",
+                meaning: "And join me - unite me with",
+                root: "ل ح ق",
+                rootMeaning: "To join, overtake, attach"
+            },
+            {
+                word: "أَنۢبَآءِ",
+                meaning: "News/tidings - reports of unseen",
+                root: "ن ب أ",
+                rootMeaning: "News, report, information"
+            },
+            {
+                word: "نُوحِيهِ",
+                meaning: "We reveal it - revealing to Prophet",
+                root: "و ح ي",
+                rootMeaning: "To reveal, inspire"
+            },
+            {
+                word: "لَدَيۡهِمۡ",
+                meaning: "With them - in their presence",
+                root: "ل د ي",
+                rootMeaning: "With, near, at"
+            },
+            {
+                word: "أَجۡمَعُوٓاْ",
+                meaning: "They resolved/agreed - unanimous decision",
+                root: "ج م ع",
+                rootMeaning: "To gather, agree, resolve"
+            },
+            {
+                word: "أَمۡرَهُمۡ",
+                meaning: "Their affair/plan - their scheme",
+                root: "أ م ر",
+                rootMeaning: "Affair, matter, plan"
+            },
+            {
+                word: "يَمۡكُرُونَ",
+                meaning: "They plot - making schemes",
+                root: "م ك ر",
+                rootMeaning: "To plot, scheme"
+            },
+            {
+                word: "وَلَوۡ",
+                meaning: "Even if - even though",
+                root: "و ل و",
+                rootMeaning: "Even if, although"
+            },
+            {
+                word: "حَرَصۡتَ",
+                meaning: "You desire eagerly - despite your eagerness",
+                root: "ح ر ص",
+                rootMeaning: "To desire eagerly, be keen"
+            },
+            {
+                word: "ذِكۡرٞ",
+                meaning: "Reminder/message - message for people",
+                root: "ذ ك ر",
+                rootMeaning: "Reminder, remembrance, mention"
+            },
+            {
+                word: "لِّلۡعَٰلَمِينَ",
+                meaning: "For the worlds - all creation",
+                root: "ع ل م",
+                rootMeaning: "Worlds, realms, creation"
+            },
+            {
+                word: "وَكَأَيِّن",
+                meaning: "And how many - many signs",
+                root: "ك أ ي",
+                rootMeaning: "How many, numerous"
+            },
+            {
+                word: "يَمُرُّونَ",
+                meaning: "They pass by - passing by signs",
+                root: "م ر ر",
+                rootMeaning: "To pass by, go through"
+            },
+            {
+                word: "مُعۡرِضُونَ",
+                meaning: "Turning away - heedless of signs",
+                root: "ع ر ض",
+                rootMeaning: "To turn away, be heedless"
+            },
+            {
+                word: "أَفَأَمِنُوٓاْ",
+                meaning: "Do they feel secure - false security",
+                root: "أ م ن",
+                rootMeaning: "To feel secure, be safe"
+            },
+            {
+                word: "غَٰشِيَةٞ",
+                meaning: "Overwhelming/covering - punishment overwhelming",
+                root: "غ ش و",
+                rootMeaning: "To cover, overwhelm, envelope"
+            },
+            {
+                word: "ٱلسَّاعَةُ",
+                meaning: "The Hour - Day of Judgment",
+                root: "س و ع",
+                rootMeaning: "Hour, time, moment"
+            },
+            {
+                word: "بَغۡتَةٗ",
+                meaning: "Suddenly - without warning",
+                root: "ب غ ت",
+                rootMeaning: "Suddenly, unexpectedly"
+            },
+            {
+                word: "أَدۡعُوٓاْ",
+                meaning: "I call/invite - calling to Allah",
+                root: "د ع و",
+                rootMeaning: "To call, invite, summon"
+            },
+            {
+                word: "بَصِيرَةٍ",
+                meaning: "Clear insight/evidence - certain knowledge",
+                root: "ب ص ر",
+                rootMeaning: "Insight, vision, evidence"
+            },
+            {
+                word: "نُّوحِيٓ",
+                meaning: "We reveal - divine revelation",
+                root: "و ح ي",
+                rootMeaning: "To reveal, inspire"
+            },
+            {
+                word: "ٱلۡقُرَىٰٓۗ",
+                meaning: "The towns/cities - settled communities",
+                root: "ق ر ي",
+                rootMeaning: "Town, city, village"
+            },
+            {
+                word: "يَسِيرُواْ",
+                meaning: "They travel - journey through land",
+                root: "س ي ر",
+                rootMeaning: "To travel, journey"
+            },
+            {
+                word: "فَيَنظُرُواْ",
+                meaning: "So they may see - observe and reflect",
+                root: "ن ظ ر",
+                rootMeaning: "To look, see, consider"
+            },
+            {
+                word: "عَٰقِبَةُ",
+                meaning: "End/consequence - final outcome",
+                root: "ع ق ب",
+                rootMeaning: "End, consequence, result"
+            },
+            {
+                word: "وَلَدَارُ",
+                meaning: "And surely the home - abode of Hereafter",
+                root: "د و ر",
+                rootMeaning: "Home, abode, dwelling"
+            },
+            {
+                word: "ٱسۡتَيۡـَٔسَ",
+                meaning: "They despaired - lost hope",
+                root: "ي أ س",
+                rootMeaning: "To despair, lose hope"
+            },
+            {
+                word: "وَظَنُّوٓاْ",
+                meaning: "And they thought - believed strongly",
+                root: "ظ ن ن",
+                rootMeaning: "To think, suppose"
+            },
+            {
+                word: "كُذِبُواْ",
+                meaning: "They were denied/lied to - messengers denied",
+                root: "ك ذ ب",
+                rootMeaning: "To be lied to, denied"
+            },
+            {
+                word: "يُرَدُّ",
+                meaning: "Is repelled - cannot be turned back",
+                root: "ر د د",
+                rootMeaning: "To repel, turn back, return"
+            },
+            {
+                word: "بَأۡسُنَا",
+                meaning: "Our punishment - Allah's severe punishment",
+                root: "ب أ س",
+                rootMeaning: "Punishment, might, severity"
+            },
+            {
+                word: "عِبۡرَةٞ",
+                meaning: "A lesson - moral lesson",
+                root: "ع ب ر",
+                rootMeaning: "Lesson, example, crossing"
+            },
+            {
+                word: "لِّأُوْلِي",
+                meaning: "For those possessing - for people of",
+                root: "أ و ل",
+                rootMeaning: "To possess, have (particle)"
+            },
+            {
+                word: "ٱلۡأَلۡبَٰبِۗ",
+                meaning: "Understanding/intellect - minds and hearts",
+                root: "ل ب ب",
+                rootMeaning: "Core, intellect, understanding"
+            },
+            {
+                word: "حَدِيثٗا",
+                meaning: "A narration - invented story",
+                root: "ح د ث",
+                rootMeaning: "Narration, story, event"
+            },
+            {
+                word: "يُفۡتَرَىٰ",
+                meaning: "To be invented - fabricated tale",
+                root: "ف ر ي",
+                rootMeaning: "To invent, fabricate"
+            },
+            {
+                word: "تَصۡدِيقَ",
+                meaning: "Confirmation - confirming previous scripture",
+                root: "ص د ق",
+                rootMeaning: "To confirm, verify"
+            },
+            {
+                word: "وَتَفۡصِيلَ",
+                meaning: "And detailed explanation - making things clear",
+                root: "ف ص ل",
+                rootMeaning: "To detail, separate, explain"
+            },
+            {
+                word: "تَٱللَّهِ",
+                meaning: "By Allah - oath by Allah",
+                root: "أ ل هـ",
+                rootMeaning: "Allah, God"
+            },
+            {
+                word: "تَفۡتَؤُاْ",
+                meaning: "You will cease - never stop",
+                root: "ف ت أ",
+                rootMeaning: "To cease, stop"
+            },
+            {
+                word: "حَرَضًا",
+                meaning: "In grief/consumed - wasting away in sorrow",
+                root: "ح ر ض",
+                rootMeaning: "To waste away, be consumed"
+            },
+            {
+                word: "ٱلۡهَٰلِكِينَ",
+                meaning: "Those who perish - among the destroyed",
+                root: "هـ ل ك",
+                rootMeaning: "To perish, be destroyed"
+            },
+            {
+                word: "أَشۡكُواْ",
+                meaning: "I complain - express grief",
+                root: "ش ك و",
+                rootMeaning: "To complain, express grief"
+            },
+            {
+                word: "بَثِّي",
+                meaning: "My anguish - deep sorrow",
+                root: "ب ث ث",
+                rootMeaning: "Anguish, deep grief"
+            },
+            {
+                word: "يَٰبَنِيَّ",
+                meaning: "O my sons - addressing his children",
+                root: "ب ن ي",
+                rootMeaning: "Son, child"
+            },
+            {
+                word: "فَتَحَسَّسُواْ",
+                meaning: "So search/investigate - seek with senses",
+                root: "ح س س",
+                rootMeaning: "To search, investigate, sense"
+            },
+            {
+                word: "تَاْيۡـَٔسُواْ",
+                meaning: "Do not despair - don't lose hope",
+                root: "ي أ س",
+                rootMeaning: "To despair, lose hope"
+            },
+            {
+                word: "رَّوۡحِ",
+                meaning: "Mercy/relief - Allah's mercy",
+                root: "ر و ح",
+                rootMeaning: "Spirit, mercy, relief"
+            },
+            {
+                word: "مَسَّنَا",
+                meaning: "Has touched us - afflicted us",
+                root: "م س س",
+                rootMeaning: "To touch, affect, afflict"
+            },
+            {
+                word: "وَأَهۡلَنَا",
+                meaning: "And our family - our household",
+                root: "أ هـ ل",
+                rootMeaning: "Family, household"
+            },
+            {
+                word: "ٱلضُّرُّ",
+                meaning: "The hardship - harm and difficulty",
+                root: "ض ر ر",
+                rootMeaning: "Harm, hardship, adversity"
+            },
+            {
+                word: "وَجِئۡنَا",
+                meaning: "And we have brought - came with",
+                root: "ج ي أ",
+                rootMeaning: "To come, bring"
+            },
+            {
+                word: "بِبِضَٰعَةٖ",
+                meaning: "With goods/merchandise - poor goods",
+                root: "ب ض ع",
+                rootMeaning: "Goods, merchandise"
+            },
+            {
+                word: "مُّزۡجَىٰةٖ",
+                meaning: "Paltry/little - inferior goods",
+                root: "ز ج و",
+                rootMeaning: "To be little, scanty, inferior"
+            },
+            {
+                word: "فَأَوۡفِ",
+                meaning: "So give full measure - complete the measure",
+                root: "و ف ي",
+                rootMeaning: "To fulfill, complete"
+            },
+            {
+                word: "وَتَصَدَّقۡ",
+                meaning: "And be charitable - give charity",
+                root: "ص د ق",
+                rootMeaning: "To give charity, be truthful"
+            },
+            {
+                word: "ٱلۡمُتَصَدِّقِينَ",
+                meaning: "The charitable ones - those who give charity",
+                root: "ص د ق",
+                rootMeaning: "To give charity"
+            },
+            {
+                word: "يَجۡزِي",
+                meaning: "He rewards - Allah recompenses",
+                root: "ج ز ي",
+                rootMeaning: "To reward, recompense"
+            },
+            {
+                word: "هَلۡ",
+                meaning: "Do/did - question particle",
+                root: "هـ ل",
+                rootMeaning: "Question particle (do/did)"
+            },
+            {
+                word: "جَٰهِلُونَ",
+                meaning: "Ignorant/unaware - not knowing",
+                root: "ج هـ ل",
+                rootMeaning: "To be ignorant, unaware"
+            },
+            {
+                word: "أَءِنَّكَ",
+                meaning: "Are you indeed - questioning identity",
+                root: "أ ن ن",
+                rootMeaning: "Indeed you (particle)"
+            },
+            {
+                word: "لَأَنتَ",
+                meaning: "Surely you - emphatic confirmation",
+                root: "أ ن ت",
+                rootMeaning: "You (emphatic)"
+            },
+            {
+                word: "مَنَّ",
+                meaning: "He favored - bestowed favor",
+                root: "م ن ن",
+                rootMeaning: "To favor, bestow, obligate"
+            },
+            {
+                word: "يَتَّقِ",
+                meaning: "He fears Allah - has taqwa",
+                root: "و ق ي",
+                rootMeaning: "To fear Allah, have piety"
+            },
+            {
+                word: "وَيَصۡبِرۡ",
+                meaning: "And is patient - exercises patience",
+                root: "ص ب ر",
+                rootMeaning: "To be patient, endure"
+            },
+            {
+                word: "يُضِيعُ",
+                meaning: "He wastes/loses - lets go to waste",
+                root: "ض ي ع",
+                rootMeaning: "To waste, lose, let perish"
+            },
+            {
+                word: "ءَاثَرَكَ",
+                meaning: "Has preferred you - chosen you over",
+                root: "أ ث ر",
+                rootMeaning: "To prefer, choose over"
+            },
+            {
+                word: "لَخَٰطِـِٔينَ",
+                meaning: "Surely wrong/mistaken - in error",
+                root: "خ ط أ",
+                rootMeaning: "To err, be wrong, make mistake"
+            },
+            {
+                word: "تَثۡرِيبَ",
+                meaning: "Blame/reproach - no reproach today",
+                root: "ث ر ب",
+                rootMeaning: "To blame, reproach"
+            },
+            {
+                word: "أَرۡحَمُ",
+                meaning: "Most Merciful - the Most Merciful",
+                root: "ر ح م",
+                rootMeaning: "To be merciful, have mercy"
+            },
+            {
+                word: "ٱلرَّٰحِمِينَ",
+                meaning: "Those who show mercy - merciful ones",
+                root: "ر ح م",
+                rootMeaning: "To show mercy, be merciful"
+            }
+        ];
+
+        let currentIndex = 0;
+        let showingDetails = false;
+
+        function loadCard() {
+            const card = flashcards[currentIndex];
+            document.getElementById('arabicWord').textContent = card.word;
+            document.getElementById('meaning').textContent = card.meaning;
+            document.getElementById('root').textContent = card.root;
+            document.getElementById('rootMeaning').textContent = card.rootMeaning;
+            
+            // Reset details to hidden
+            document.getElementById('details').classList.remove('show');
+            document.getElementById('toggleBtn').textContent = 'Show Details';
+            showingDetails = false;
+            
+            // Update progress
+            document.getElementById('currentCard').textContent = currentIndex + 1;
+            document.getElementById('totalCards').textContent = flashcards.length;
+            const progress = ((currentIndex + 1) / flashcards.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex === flashcards.length - 1;
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleDetails() {
+            showingDetails = !showingDetails;
+            const details = document.getElementById('details');
+            const btn = document.getElementById('toggleBtn');
+            
+            if (showingDetails) {
+                details.classList.add('show');
+                btn.textContent = 'Hide Details';
+            } else {
+                details.classList.remove('show');
+                btn.textContent = 'Show Details';
+            }
+        }
+
+        function nextCard() {
+            if (currentIndex < flashcards.length - 1) {
+                currentIndex++;
+                loadCard();
+            }
+        }
+
+        function previousCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                loadCard();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === 'n') {
+                nextCard();
+            } else if (event.key === 'ArrowLeft' || event.key === 'p') {
+                previousCard();
+            } else if (event.key === ' ' || event.key === 'Enter') {
+                event.preventDefault();
+                toggleDetails();
+            }
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                nextCard();
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                previousCard();
+            }
+        }
+
+        // Load first card on page load
+        window.onload = loadCard;
+    </script>
+</body>
+</html>
